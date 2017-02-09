@@ -19,7 +19,7 @@ public class RandomItemInputOutput {
 			System.out.println("There was an error with your input, please try again.");
 			number = Integer.parseInt(promptUser()[0]);
 		}
-		  System.out.print("What lists do you wish to include (filename or * for all, comma seperated): ");
+		  System.out.print("What lists do you wish to include (ex: list1,list2.  Leave blank to indicate all lists): ");
 		  lists = user_input.nextLine();
 		  String[] array = new String[2];
 		  array[0] = "" + number;

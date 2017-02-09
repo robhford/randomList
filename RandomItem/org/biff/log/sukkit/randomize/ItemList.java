@@ -11,10 +11,23 @@ public class ItemList {
 
 	public ItemList(String lists) {
 		list = new ArrayList<String>();
-		String[] splitLists = lists.split(",");
-		for (int i = 0; i < splitLists.length; i++) {
-			createListFromFile(splitLists[i]);
+		if (lists.equals("")) {
+			File folder = new File(ClassLoader.getSystemResource("org/biff/log/sukkit/resources").getFile());
+			File[] listOfFiles = folder.listFiles();
+
+			    for (int i = 0; i < listOfFiles.length; i++) {
+			      if (listOfFiles[i].isFile()) {
+			        createListFromFile(listOfFiles[i].getName().substring(listOfFiles[i].getName().lastIndexOf("\\")+1));
+			      }
+			    }
 		}
+		else{
+			String[] splitLists = lists.split(",");
+			for (int i = 0; i < splitLists.length; i++) {
+				createListFromFile(splitLists[i]+".txt");
+			}
+		}
+	
 		rng = new Random();
 	}
 
@@ -25,7 +38,7 @@ public class ItemList {
 	}
 	public void createListFromFile(String listNameFromFile){
 		try {
-			File file = new File(ClassLoader.getSystemResource("org/biff/log/sukkit/resources/" + listNameFromFile + ".txt").getFile());
+			File file = new File(ClassLoader.getSystemResource("org/biff/log/sukkit/resources/" + listNameFromFile).getFile());
 			Scanner s = new Scanner(file);
 			while (s.hasNextLine()){
 			    list.add(s.nextLine());
