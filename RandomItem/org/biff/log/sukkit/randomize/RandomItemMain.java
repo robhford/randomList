@@ -1,10 +1,7 @@
 package org.biff.log.sukkit.randomize;
-import java.util.Scanner;
 
 public class RandomItemMain
 {
-	  Scanner user_input = new Scanner(System.in); 
-
   public static void main(String[] args)
   {
 	  RandomItemInputOutput inputOutput = new RandomItemInputOutput();
